@@ -1,0 +1,194 @@
+:root {
+  --bg: #f2f8ff;
+  --card: #ffffff;
+  --left: #2e86ff;
+  --right: #ff4d6d;
+  --text: #1d2b3a;
+  --ok: #18a957;
+  --bad: #e63946;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background: radial-gradient(circle at top, #dff3ff 0%, var(--bg) 35%, #eaf7ef 100%);
+  color: var(--text);
+}
+
+.header {
+  text-align: center;
+  padding: 1rem 1rem 0.5rem;
+}
+.header h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.question-screen,
+.arena {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(34, 68, 110, 0.13);
+  padding: 1rem;
+}
+
+.screen-title {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.turn-badge {
+  font-size: 0.9rem;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  width: fit-content;
+  margin-bottom: 0.8rem;
+}
+#leftScreen .turn-badge { background: #deebff; color: #114799; }
+#rightScreen .turn-badge { background: #ffe1e8; color: #9a1230; }
+
+.question-text {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1.45;
+}
+
+.choices,
+.tf-grid {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.choice-btn,
+.tf-row button,
+.submit-tf {
+  border: 1px solid #cdddf0;
+  background: #f7fbff;
+  padding: 0.6rem;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+.choice-btn:hover,
+.tf-row button:hover,
+.submit-tf:hover { background: #e9f3ff; }
+
+.choice-btn.correct,
+.tf-row button.correct { border-color: var(--ok); background: #dcf7e7; }
+.choice-btn.wrong,
+.tf-row button.wrong { border-color: var(--bad); background: #ffe4e7; }
+
+.tf-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.4rem;
+  align-items: center;
+}
+.tf-row .statement {
+  background: #f8faff;
+  border: 1px solid #dae7fa;
+  border-radius: 8px;
+  padding: 0.45rem;
+  font-size: 0.94rem;
+}
+.tf-row button.active {
+  border-color: #1f67d2;
+  background: #dcecff;
+  font-weight: 700;
+}
+
+.score-board {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+.tug-zone {
+  position: relative;
+  border: 2px dashed #c8d7ea;
+  border-radius: 14px;
+  min-height: 170px;
+  padding: 1rem;
+  background: linear-gradient(180deg, #fbfeff 0%, #eff8ff 100%);
+}
+.center-line {
+  position: absolute;
+  top: 8%; bottom: 8%; left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(#92accf 0 10px, transparent 10px 20px);
+}
+.rope {
+  position: absolute;
+  top: 58%; left: 15%; right: 15%;
+  height: 8px;
+  border-radius: 999px;
+  background: #a5682b;
+  z-index: 1;
+}
+.teams {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  transition: transform 0.45s ease;
+  z-index: 2;
+}
+.flag { font-size: 2rem; }
+
+.feedback {
+  margin-top: 0.8rem;
+  min-height: 26px;
+  font-weight: 700;
+}
+.feedback.ok { color: var(--ok); }
+.feedback.bad { color: var(--bad); }
+
+.next-btn {
+  width: 100%;
+  margin-top: 0.4rem;
+  border: none;
+  background: #1749a8;
+  color: white;
+  padding: 0.7rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.next-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.preview-title {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.preview-content {
+  color: #38506d;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+dialog {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.2);
+  padding: 1.2rem;
+}
+
+@media (max-width: 1100px) {
+  .game-layout { grid-template-columns: 1fr; }
+}

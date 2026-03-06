@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kéo Co Xác Suất - Kết quả có thể & Thuận lợi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        svg: { fontCache: 'global' },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1>🎯 KÉO CO TRI THỨC XÁC SUẤT</h1>
+      <p>
+        Chủ đề: <strong>Kết quả có thể</strong> và
+        <strong>Kết quả thuận lợi cho biến cố</strong>
+      </p>
+    </header>
+
+    <main class="game-layout">
+      <section class="question-screen" id="leftScreen">
+        <div class="screen-title">Đội Trái 🔵</div>
+        <div class="turn-badge" id="turnBadgeLeft">Lượt hiện tại</div>
+        <div class="question-content" id="questionContainer"></div>
+      </section>
+
+      <section class="arena">
+        <div class="score-board">
+          <div>
+            <strong>Đội Trái:</strong> <span id="leftScore">0</span>
+          </div>
+          <div>
+            <strong>Đội Phải:</strong> <span id="rightScore">0</span>
+          </div>
+          <div>
+            <strong>Câu:</strong> <span id="currentIndex">1</span>/<span id="totalQuestions">12</span>
+          </div>
+        </div>
+
+        <div class="tug-zone">
+          <div class="center-line"></div>
+          <div class="rope" id="rope"></div>
+          <div class="teams" id="teams">
+            <div class="team left-team">🧑‍🎓🧑‍🎓🧑‍🎓</div>
+            <div class="flag">🚩</div>
+            <div class="team right-team">🧑‍🎓🧑‍🎓🧑‍🎓</div>
+          </div>
+        </div>
+
+        <div class="feedback" id="feedback">Bắt đầu thi đấu nào!</div>
+        <button id="nextBtn" class="next-btn" disabled>Câu tiếp theo ➜</button>
+      </section>
+
+      <section class="question-screen" id="rightScreen">
+        <div class="screen-title">Đội Phải 🔴</div>
+        <div class="turn-badge" id="turnBadgeRight">Đang chờ</div>
+        <div class="preview-title">Xem trước câu kế tiếp</div>
+        <div class="preview-content" id="previewContainer"></div>
+      </section>
+    </main>
+
+    <dialog id="resultDialog">
+      <h2>Kết thúc trò chơi 🏁</h2>
+      <p id="resultText"></p>
+      <button id="restartBtn">Chơi lại</button>
+    </dialog>
+  </body>
+</html>
